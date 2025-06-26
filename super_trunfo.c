@@ -5,7 +5,7 @@ int main (){
     int populacao, n_pts_turisticos, id_carta, id_cidade;
     float area, pib;
     char pais, estado;
-    char cidade [50];
+    char cidade[50];
 
 //Entrada e Saida de Dados
     printf("BEM VINDO! \n");
