@@ -6,11 +6,13 @@ int main (){
     float area1, area2, pib1, pib2, densidade1, densidade2, pibpc1, pibpc2;
     char pais1, pais2, estado1, estado2;
     char cidade1[50], cidade2[50];
+    int comp_pop, comp_area, comp_pib, comp_tur, comp_dens, comp_pibpc, comp_spwr;
+    unsigned long int spower1, spower2;
 
 
 //Mensagens e Entrada das 1ª Carta
     printf("BEM VINDO! \n");
-    printf("\nAtente-se às regras:\n Você pode cadastrar apenas 8 Estados, identificados pelas letras A a H, e para cada Estado inserir 4 Cidades, identificadas por números de 01 a 04! \n");
+    printf("\nAtente-se às regras:\nVocê pode cadastrar apenas 8 Estados, identificados pelas letras A a H, e para cada Estado inserir 4 Cidades, identificadas por números de 01 a 04! \n");
         
     printf("Agora identifique seu Estado com uma letra de A a H (maiúsculo): \n");
     scanf(" %c", &estado1);
@@ -69,6 +71,18 @@ int main (){
     pibpc1 = pib1 / populacao1;
     pibpc2 = pib2 / populacao2;
 
+    //Cálculo do Super Poder
+    spower1 = populacao1 + area1 + pib1 + n_pts_turisticos1 + pibpc1 + (1 / densidade1); 
+    spower2 = populacao2 + area2 + pib2 + n_pts_turisticos2 + pibpc2 + (1 / densidade2);
+
+    //Fazendo os Comparativos
+    comp_pop = populacao1 > populacao2;
+    comp_area = area1 > area2;
+    comp_pib = pib1 >pib2;
+    comp_tur = n_pts_turisticos1 > n_pts_turisticos2;
+    comp_dens = densidade1 < densidade2;
+    comp_pibpc = pibpc1 > pibpc2;
+    comp_spwr = spower1 > spower2;
 
 //Demonstrativo em Tela
     printf("\nConfira os dados de suas cartas abaixo: \n");
@@ -83,6 +97,7 @@ int main (){
     printf("Número de Pontos Turísticos: %d \n", n_pts_turisticos1);
     printf("Densidade Populacional: %.2f hab/km² \n", densidade1);
     printf("PIB per Capita: %.2f de reais \n", pibpc1);
+    printf("Super Poder: %lu\n", spower1);
 
 
     printf("\nCarta nº 02\n");
@@ -96,6 +111,22 @@ int main (){
     printf("Número de Pontos Turísticos: %d \n", n_pts_turisticos2);
     printf("Densidade Populacional: %.2f hab/km² \n", densidade2);
     printf("PIB per Capita: %.2f de reais \n", pibpc2);
+    printf("Super Poder: %lu\n", spower2);
+
+    printf("\n       **** Vamos ver quem ganhou esta batalha???? ****\n\n");
+    printf("Verificando as cartas %c%d (%s) e %c%d (%s), temos:\n\n", estado1, id_cidade1, cidade1, estado2, id_cidade2, cidade2);
+    printf("População: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_pop);
+    printf("Área: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_area);
+    printf("PIB: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_pib);
+    printf("Pontos Turisticos: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_tur);
+    printf("Densidade Populacional: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_dens);
+    printf("PIB per Capita: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_pibpc);
+    printf("Super Poder!: %s venceu? (1=SIM; 0=NÃO) :::: %d\n", cidade1, comp_spwr);
+    printf("\n\n       **** Até a próxima rodada!! ****\n\n");
+
+    return 0;
+
+}
 
 
     return 0;
