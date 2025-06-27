@@ -5,7 +5,8 @@ int main (){
     int populacao1, populacao2, n_pts_turisticos1, n_pts_turisticos2, id_cidade1, id_cidade2;
     float area1, area2, pib1, pib2;
     char pais1, pais2, estado1, estado2;
-    char cidade1[50], cidade2[50];
+    char cidade1[50];
+    char cidade2[50];
 
 //Mensagens e Entrada da 1ª Carta
     printf("BEM VINDO! \n");
