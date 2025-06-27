@@ -3,12 +3,12 @@
 //Definição das variaveis
 int main (){
     int populacao1, populacao2, n_pts_turisticos1, n_pts_turisticos2, id_cidade1, id_cidade2;
-    float area1, area2, pib1, pib2;
+    float area1, area2, pib1, pib2, densidade1, densidade2, pibpc1, pibpc2;
     char pais1, pais2, estado1, estado2;
-    char cidade1[50];
-    char cidade2[50];
+    char cidade1[50], cidade2[50];
 
-//Mensagens e Entrada da 1ª Carta
+
+//Mensagens e Entrada das 1ª Carta
     printf("BEM VINDO! \n");
     printf("\nAtente-se às regras:\n Você pode cadastrar apenas 8 Estados, identificados pelas letras A a H, e para cada Estado inserir 4 Cidades, identificadas por números de 01 a 04! \n");
         
@@ -35,7 +35,8 @@ int main (){
     scanf("%d", &n_pts_turisticos1);
 
 
-//Mensagens e Entrada da 2ª Carta
+//Mensagens e Entrada das 2ª Carta
+
     printf("\n**VAMOS PARA A PRÓXIMA CARTA! \n");
     printf("\nLembrete das regras: 8 Estados, com 4 Cidades cada! \n");
         
@@ -62,6 +63,13 @@ int main (){
     scanf("%d", &n_pts_turisticos2);
 
 
+//Cálculos
+    densidade1 = populacao1 / area1;
+    densidade2 = populacao2 / area2;
+    pibpc1 = pib1 / populacao1;
+    pibpc2 = pib2 / populacao2;
+
+
 //Demonstrativo em Tela
     printf("\nConfira os dados de suas cartas abaixo: \n");
     printf("\nCarta nº 01\n");
@@ -70,9 +78,12 @@ int main (){
     printf("%d \n", id_cidade1); //Esta linha com a linha de cima formam o Código da Carta (Estado+Cidade ex: A01)
     printf("Cidade: %s \n", cidade1);
     printf("População: %d hab \n", populacao1); //Sulfixo após a informação
-    printf("Área: %.2f m² \n", area1); //Sulfixo após a informação
-    printf("PIB: %.2f \n", pib1);
+    printf("Área: %.2f km² \n", area1); //Sulfixo após a informação
+    printf("PIB: %.2f de reais \n", pib1);
     printf("Número de Pontos Turísticos: %d \n", n_pts_turisticos1);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidade1);
+    printf("PIB per Capita: %.2f de reais \n", pibpc1);
+
 
     printf("\nCarta nº 02\n");
     printf("Estado: %c \n", estado2);
@@ -80,9 +91,14 @@ int main (){
     printf("%d \n", id_cidade2); //Esta linha com a linha de cima formam o Código da Carta (Estado+Cidade ex: A01)
     printf("Cidade: %s \n", cidade2);
     printf("População: %d hab \n", populacao2); //Sulfixo após a informação
-    printf("Área: %.2f m² \n", area2); //Sulfixo após a informação
-    printf("PIB: %.2f \n", pib2);
+    printf("Área: %.2f km² \n", area2); //Sulfixo após a informação
+    printf("PIB: %.2f de reais \n", pib2);
     printf("Número de Pontos Turísticos: %d \n", n_pts_turisticos2);
+    printf("Densidade Populacional: %.2f hab/km² \n", densidade2);
+    printf("PIB per Capita: %.2f de reais \n", pibpc2);
+
+
     return 0;
+
 
 }
